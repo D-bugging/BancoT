@@ -6,7 +6,6 @@ public class Cliente {
     private int numeroCartao,pin;
     private String nome, dataNascimento;
     private Endereco endereco;
-    private String dataNascimento;
 
     public int getNumeroCartao() {
         return numeroCartao;
