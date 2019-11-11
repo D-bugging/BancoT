@@ -4,7 +4,7 @@ package bean;
 public class Banco {
     
     private int codigo;
-    private Endereco endereco;
+    private String gerente;
 
     public int getCodigo() {
         return codigo;
@@ -14,14 +14,12 @@ public class Banco {
         this.codigo = codigo;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+    public String getGerente() {
+        return gerente;
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
-    
-    
+    public void setGerente(String gerente) {
+        this.gerente = gerente;
+    }  
     
 }

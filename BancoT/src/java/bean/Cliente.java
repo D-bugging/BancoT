@@ -1,12 +1,11 @@
 
 package bean;
 
-public class Cliente extends Pessoa {
+public class Cliente {
     
     private int numeroCartao,pin;
     private String nome, dataNascimento;
     private Endereco endereco;
-
 
     public int getNumeroCartao() {
         return numeroCartao;
@@ -22,6 +21,22 @@ public class Cliente extends Pessoa {
 
     public void setPin(int pin) {
         this.pin = pin;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
     
 }

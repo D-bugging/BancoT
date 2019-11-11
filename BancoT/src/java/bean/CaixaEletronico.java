@@ -3,7 +3,8 @@ package bean;
 
 public class CaixaEletronico {
     
-    private String agencia, gerente;
+    private String agencia;
+    private Endereco endereco;
 
     public String getAgencia() {
         return agencia;
@@ -13,14 +14,12 @@ public class CaixaEletronico {
         this.agencia = agencia;
     }
 
-    public String getGerente() {
-        return gerente;
+    public Endereco getEndereco() {
+        return endereco;
     }
 
-    public void setGerente(String gerente) {
-        this.gerente = gerente;
-    }
-    
-    
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }  
     
 }
