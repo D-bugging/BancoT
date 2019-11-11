@@ -3,13 +3,29 @@ default character set utf8
 default collate utf8_general_ci;
 use banco;
 
+
+# Tabela para endereco de Pessoa
+create table Endereco(
+	idEndereco int not null unique auto_increment,
+	rua varchar(255) not null,
+    numero int not null,
+    bairro varchar(255) not null,
+    cidade varchar(255) not null,
+    estado varchar(255) not null,
+    cep varchar(255),
+    
+    primary key(idEndereco)
+    #pessoa_idPessoa int,
+    #foreign key(pessoa_idPessoa) references Pessoa(idPessoa)
+)default charset=utf8;
+
 # Tabela Pessoa (Generalização)
 create table Pessoa(
 	idPessoa int not null unique auto_increment,
 	nome varchar(255) not null,
     dataNascimento varchar(10) not null,
     
-    primary key(idPessoa)
+    primary key(idPessoa),
     endereco_idEndereco int not null,
     foreign key(endereco_idEndereco) references Endereco(idEndereco)
 );
@@ -32,20 +48,6 @@ create table Gerente(
     foreign key(pessoa_idPessoa) references Pessoa(idPessoa)
 );
 
-# Tabela para endereco de Pessoa
-create table Endereco(
-	idEndereco int not null unique auto_increment,
-	rua varchar(255) not null,
-    numero int not null,
-    bairro varchar(255) not null,
-    cidade varchar(255) not null,
-    estado varchar(255) not null,
-    cep varchar(255),
-    
-    primary key(idEndereco),
-    #pessoa_idPessoa int,
-    #foreign key(pessoa_idPessoa) references Pessoa(idPessoa)
-)default charset=utf8;
 
 # Tabela para conta do cliente (deve estar vinculado com a tabela Cliente)
 create table Conta(
