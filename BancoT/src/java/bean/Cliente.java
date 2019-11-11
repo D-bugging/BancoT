@@ -4,6 +4,9 @@ package bean;
 public class Cliente extends Pessoa {
     
     private int numeroCartao,pin;
+    private String nome, dataNascimento;
+    private Endereco endereco;
+
 
     public int getNumeroCartao() {
         return numeroCartao;
