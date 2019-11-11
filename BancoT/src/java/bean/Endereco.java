@@ -1,7 +1,7 @@
 
 package bean;
 
-public class Endereco extends Cliente {
+public class Endereco {
     
     private int numero;
     private String rua,bairro,cidade,estado,cep;
