@@ -3,35 +3,6 @@ default character set utf8
 default collate utf8_general_ci;
 use banco;
 
-# Tabela Pessoa (Generalização)
-create table Pessoa(
-	idPessoa int not null unique auto_increment,
-	nome varchar(255) not null,
-    dataNascimento varchar(10) not null,
-    
-    primary key(idPessoa)
-    endereco_idEndereco int not null,
-    foreign key(endereco_idEndereco) references Endereco(idEndereco)
-);
-# Tabela para cliente (Herança de Pessoa)
-create table Cliente(
-	idCliente int not null unique auto_increment,
-	numeroCartao int not null unique,
-    pin int not null,
-    pessoa_idPessoa int not null,
-    
-	primary key(idCliente),
-    foreign key(pessoa_idPessoa) references Pessoa(idPessoa)
-)default charset=utf8;
-# Tabela para Gerente (Herança de Pessoa
-create table Gerente(
-	idGerente int not null unique auto_increment,
-    pessoa_idPessoa int not null,
-    
-    primary key(idGerente),
-    foreign key(pessoa_idPessoa) references Pessoa(idPessoa)
-);
-
 # Tabela para endereco de Pessoa
 create table Endereco(
 	idEndereco int not null unique auto_increment,
@@ -39,15 +10,32 @@ create table Endereco(
     numero int not null,
     bairro varchar(255) not null,
     cidade varchar(255) not null,
-    estado varchar(255) not null,
+    estado varchar(255) not null, #Char(2)
     cep varchar(255),
     
-    primary key(idEndereco),
-    #pessoa_idPessoa int,
-    #foreign key(pessoa_idPessoa) references Pessoa(idPessoa)
+    primary key(idEndereco)
 )default charset=utf8;
+insert into Endereco(rua, numero, bairro, cidade, estado, cep)
+	values('Rua do Abacaxi', 10, 'Centro', 'Uberlândia', 'MG', '38.400-121');
+insert into Endereco(rua, numero, bairro, cidade, estado, cep)
+	values('Rua das Oliveiras', 500, 'Vila Alburquerque', 'Uberlândia', 'MG', '32.859-157');
 
-# Tabela para conta do cliente (deve estar vinculado com a tabela Cliente)
+# Tabela para cliente, vinculado com Conta, CaixaEletronico, Endereco
+create table Cliente(
+	idCliente int not null unique auto_increment,
+	numeroCartao int not null unique,
+    nome varchar(255) not null,
+    dataNascimento varchar(10) not null, #date
+    pin int not null,
+    endereco_idEndereco int not null,
+    
+	primary key(idCliente),
+    foreign key(endereco_idEndereco) references Endereco(idEndereco)
+)default charset=utf8;
+insert into Cliente(numeroCartao, nome, dataNascimento, pin, endereco_idEndereco)
+	values(4218470099201258, 'Aurora Aksnes', '02/06/1996', 1234, 1);
+
+# Generalização
 create table Conta(
 	numero int not null unique,
     saldo double,
@@ -56,6 +44,9 @@ create table Conta(
     primary key(numero),
     foreign key(cliente_idCliente) references Cliente(idCliente)
 )default charset=utf8;
+insert into Conta(numero, saldo, cliente_idCliente)
+	values(154866321, 5.000, 1);
+
 # Conta corrente ou poupanca
 create table Corrente(
 	limite double not null,
@@ -64,13 +55,17 @@ create table Corrente(
     
     foreign key(conta_numero) references Conta(numero)
 )default charset=utf8;
+insert into Corrente(limite, taxaJuros, conta_numero)
+	values(10.000, 0.05, 154866321);
 create table Poupanca(
-	remdimento double not null,
+	rendimento double not null,
     conta_numero int not null,
     
     foreign key(conta_numero) references Conta(numero)
 )default charset=utf8;
-
+insert into Poupanca(rendimento, conta_numero)
+	values(0.01, 154866321);
+    
 # Transacoes caixa registra as atividades feitas pela conta
 # 		(depositar, retirar, transferir)
 create table TransacoesCaixa(
@@ -85,23 +80,22 @@ create table TransacoesCaixa(
     primary key(idTransacao)
 )default charset=utf8;
 
-
-# [ ========== PARTE BANCO ========== ]
 create table Banco(
     codigo int not null unique,
-    endereco varchar(255) not null,
-    
-    primary key(codigo),
-    endereco_idEndereco int not null,
-    foreign key(endereco_idEndereco) references Endereco(idEndereco)
+    gerente varchar(255) not null,
+    primary key(codigo)
 )default charset=utf8;
+insert into Banco(codigo, gerente)
+	values(1587, 'Hamilton Bueno');
 
 # Caixa eletronico
 create table CaixaEletronico(
 	agencia varchar(255) not null unique,
-    gerente varchar(255) not null,
-    
     primary key(agencia),
     banco_codigo int not null,
-    foreign key(banco_codigo) references Banco(codigo)
+    endereco_idEndereco int not null,
+    foreign key(banco_codigo) references Banco(codigo),
+    foreign key(endereco_idEndereco) references Endereco(idEndereco)
 )default charset=utf8;
+insert into CaixaEletronico(agencia, banco_codigo, endereco_idEndereco)
+	values('148A', 1587, 2);

@@ -1,0 +1,142 @@
+[33mcommit 826ab8c2fddc48520f27cd2ba984fa74226bb6ca[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Merge: af4a924 c58a24a
+Author: D-bugging <archmelo@protonmail.com>
+Date:   Mon Nov 11 12:39:07 2019 -0200
+
+    Merge origin/master
+
+[33mcommit af4a924c08abc61d547f61fff2bdcdb4dd6f4165[m
+Author: D-bugging <archmelo@protonmail.com>
+Date:   Mon Nov 11 12:37:42 2019 -0200
+
+    Adição de tabelas no database
+
+[33mcommit c58a24a8a75ae7f46bd6a8ca9a2daf4995b312cb[m
+Merge: 7d5e88a 17fbad3
+Author: leandroJobDev <lealjobs88@gmail.com>
+Date:   Mon Nov 11 11:58:33 2019 -0200
+
+    generalization
+
+[33mcommit 7d5e88a029195743ec40e7482e7e436d7597975d[m
+Author: leandroJobDev <lealjobs88@gmail.com>
+Date:   Mon Nov 11 11:56:31 2019 -0200
+
+    Add Endereco and Gerente
+
+[33mcommit 17fbad36c715a36830444ab86e8084edfc516961[m
+Author: leandroJobDev <lealjobs88@gmail.com>
+Date:   Mon Nov 11 10:53:35 2019 -0300
+
+    update2
+
+[33mcommit a6c3d314ba58de2537b09887140897704ebf8e6e[m
+Author: leandroJobDev <lealjobs88@gmail.com>
+Date:   Mon Nov 11 10:31:30 2019 -0300
+
+    update
+
+[33mcommit 818eafb8dc3c4fd7a61d7d4290793522dd1fc22e[m
+Merge: 534e1ec 66383b6
+Author: leandroJobDev <lealjobs88@gmail.com>
+Date:   Mon Nov 11 09:01:06 2019 -0300
+
+    Merge branch 'master' of https://github.com/D-bugging/BancoT
+
+[33mcommit 534e1ec34c2165b87b662991045d220b0bd68e11[m
+Author: leandroJobDev <lealjobs88@gmail.com>
+Date:   Mon Nov 11 08:58:36 2019 -0300
+
+    add Endereco
+
+[33mcommit 66383b6d5e50020770978598cc5e782c99b2a3de[m
+Author: D-bugging <archmelo@protonmail.com>
+Date:   Fri Nov 8 17:39:42 2019 -0200
+
+    Database e diagrama
+
+[33mcommit 80477ea7ed44ba295a34fd116f76796af2aa0b85[m
+Author: leandroJobDev <lealjobs88@gmail.com>
+Date:   Fri Nov 8 16:05:43 2019 -0200
+
+    Get and Set banco, transacao e caixa eletronico
+
+[33mcommit ed855716582a00d594b6472916c1de7860fde4bb[m
+Author: leandroJobDev <lealjobs88@gmail.com>
+Date:   Fri Nov 8 15:36:35 2019 -0200
+
+    Get and Set
+
+[33mcommit 4616d66dc0053f2df50515f30881823c1fd1195c[m
+Author: D-bugging <archmelo@protonmail.com>
+Date:   Fri Nov 8 15:14:28 2019 -0200
+
+[33mcommit ef9f82694001f4c2272af5f640b0950939f3c053[m
+Merge: 85c3af8 c7d30bb
+Author: D-bugging <archmelo@protonmail.com>
+Date:   Fri Nov 8 13:06:53 2019 -0200
+
+    Merge origin/master
+
+[33mcommit 85c3af88385fe76d3d4dc4f141528da7390f4f1c[m
+Author: D-bugging <archmelo@protonmail.com>
+Date:   Fri Nov 8 13:04:03 2019 -0200
+
+    Criação de pacotes
+
+[33mcommit c7d30bb41929ec9079d12dce180d8e3fab2e26d8[m
+Author: D-bugging <archmelo@protonmail.com>
+Date:   Fri Nov 8 13:04:03 2019 -0200
+
+    Criação de pacotes
+
+[33mcommit 87cf8c4744880e52ae532a60b04ef830f7392f6b[m
+Author: D-bugging <archmelo@protonmail.com>
+Date:   Fri Nov 8 12:36:42 2019 -0200
+
+    Criação do projeto
+
+[33mcommit 5c42cede393ab2d8bfa755be05b5e157777b5d67[m
+Author: D-bugging <archmelo@protonmail.com>
+Date:   Fri Nov 8 12:24:13 2019 -0200
+
+    Delete ControleUsuario.java
+
+[33mcommit 02d42d2a35159e6dacbdab73509eae25008abb1a[m
+Author: leandroJobDev <lealjobs88@gmail.com>
+Date:   Fri Nov 8 11:19:38 2019 -0300
+
+    test2
+
+[33mcommit 7064a7c3cc53a2570f3b7778fc1f19459a97dc55[m
+Author: D-bugging <archmelo@protonmail.com>
+Date:   Fri Nov 8 12:19:33 2019 -0200
+
+    Delete consultarAluno.jsp
+
+[33mcommit bb018a51bb92743b9cc3ecbd60e35866d57bf5f3[m
+Author: leandroJobDev <lealjobs88@gmail.com>
+Date:   Fri Nov 8 11:11:54 2019 -0300
+
+    test
+
+[33mcommit 813c80ae19f2a4ffd1f7a0099ec83e0584b03dc5[m
+Merge: 1c2b656 0396a14
+Author: D-bugging <57499974+D-bugging@users.noreply.github.com>
+Date:   Fri Nov 8 10:53:15 2019 -0300
+
+    Merge pull request #1 from leandroJobDev/master
+    
+    Diagrama de Classes
+
+[33mcommit 0396a14e08f57d723b49091f8b971e4966707e40[m
+Author: leandroJobDev <lealjobs88@gmail.com>
+Date:   Fri Nov 8 10:47:12 2019 -0300
+
+    Diagrama de Classes
+
+[33mcommit 1c2b656f1a53b399531438f8caa7eb8432541304[m
+Author: D-bugging <57499974+D-bugging@users.noreply.github.com>
+Date:   Fri Nov 8 10:33:08 2019 -0300
+
+    Initial commit
