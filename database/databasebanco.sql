@@ -3,23 +3,36 @@ default character set utf8
 default collate utf8_general_ci;
 use banco;
 
-
-# [ ========== PARTE CLIENTE ========== ]
-# Tabela para cliente
+# Tabela Pessoa (Generalização)
+create table Pessoa(
+	idPessoa int not null unique auto_increment,
+	nome varchar(255) not null,
+    dataNascimento varchar(10) not null,
+    
+    primary key(idPessoa)
+    endereco_idEndereco int not null,
+    foreign key(endereco_idEndereco) references Endereco(idEndereco)
+);
+# Tabela para cliente (Herança de Pessoa)
 create table Cliente(
 	idCliente int not null unique auto_increment,
-	cpf varchar(11) not null unique,
 	numeroCartao int not null unique,
-    nome varchar(255) not null,
-    endereco varchar(255) not null,
-    dataNascimento varchar(10) not null,
     pin int not null,
-    conta_numero int,
+    pessoa_idPessoa int not null,
     
 	primary key(idCliente),
-    foreign key(conta_numero) references Conta(numero)
+    foreign key(pessoa_idPessoa) references Pessoa(idPessoa)
 )default charset=utf8;
-# Tabela para endereco do cliente
+# Tabela para Gerente (Herança de Pessoa
+create table Gerente(
+	idGerente int not null unique auto_increment,
+    pessoa_idPessoa int not null,
+    
+    primary key(idGerente),
+    foreign key(pessoa_idPessoa) references Pessoa(idPessoa)
+);
+
+# Tabela para endereco de Pessoa
 create table Endereco(
 	idEndereco int not null unique auto_increment,
 	rua varchar(255) not null,
@@ -29,28 +42,31 @@ create table Endereco(
     estado varchar(255) not null,
     cep varchar(255),
     
-    cliente_idCliente int,
-    foreign key(cliente_idCliente) references Cliente(idCliente)
+    primary key(idEndereco),
+    #pessoa_idPessoa int,
+    #foreign key(pessoa_idPessoa) references Pessoa(idPessoa)
 )default charset=utf8;
 
 # Tabela para conta do cliente (deve estar vinculado com a tabela Cliente)
 create table Conta(
 	numero int not null unique,
     saldo double,
+    cliente_idCliente int,
     
-    primary key(numero)
+    primary key(numero),
+    foreign key(cliente_idCliente) references Cliente(idCliente)
 )default charset=utf8;
 # Conta corrente ou poupanca
 create table Corrente(
 	limite double not null,
     taxaJuros double,
-    conta_numero int,
+    conta_numero int not null,
     
     foreign key(conta_numero) references Conta(numero)
 )default charset=utf8;
 create table Poupanca(
 	remdimento double not null,
-    conta_numero int,
+    conta_numero int not null,
     
     foreign key(conta_numero) references Conta(numero)
 )default charset=utf8;
@@ -63,7 +79,7 @@ create table TransacoesCaixa(
     tipo varchar(255),
     valor double not null,
     posBalanco varchar(255),
-    conta_numero int,
+    conta_numero int not null,
     
     foreign key(conta_numero) references Conta(numero),
     primary key(idTransacao)
@@ -75,11 +91,17 @@ create table Banco(
     codigo int not null unique,
     endereco varchar(255) not null,
     
-    primary key(codigo)
+    primary key(codigo),
+    endereco_idEndereco int not null,
+    foreign key(endereco_idEndereco) references Endereco(idEndereco)
 )default charset=utf8;
 
-# Caixa eletroni
+# Caixa eletronico
 create table CaixaEletronico(
 	agencia varchar(255) not null unique,
     gerente varchar(255) not null,
+    
+    primary key(agencia),
+    banco_codigo int not null,
+    foreign key(banco_codigo) references Banco(codigo)
 )default charset=utf8;
